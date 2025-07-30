@@ -52,6 +52,13 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Holistic Heroes custom colors
+				'healing-blue': 'hsl(var(--healing-blue))',
+				'healing-blue-light': 'hsl(var(--healing-blue-light))',
+				'nature-green': 'hsl(var(--nature-green))',
+				'nature-green-light': 'hsl(var(--nature-green-light))',
+				'calm-teal': 'hsl(var(--calm-teal))',
+				'warm-earth': 'hsl(var(--warm-earth))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
