@@ -35,10 +35,10 @@ const Index = () => {
               resilience, and inner strength for those who have served our country.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-4">
+              <Button asChild size="lg" variant="hero" className="text-lg px-8 py-4">
                 <Link to="/programs">Explore Programs</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-4">
+              <Button asChild size="lg" variant="hero-outline" className="text-lg px-8 py-4">
                 <Link to="/donate">Support Our Mission</Link>
               </Button>
             </div>
