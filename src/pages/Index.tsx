@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Heart, Shield, Brain, Leaf, Target, Users } from 'lucide-react';
-import heroImage from '@/assets/hero-veterans-breathwork.jpg';
+const heroImage = '/lovable-uploads/ee48565e-c22d-42cb-b7cd-5b3e482fae8b.png';
 
 const Index = () => {
   const goalAmount = 1000000;
