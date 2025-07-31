@@ -45,7 +45,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-sm text-primary-foreground/70">
           <div className="space-y-2">
-            <p>Copyright © 2024 Holistic Heroes - All Rights Reserved. Powered by GoDaddy.</p>
+            <p>Copyright © 2024 Holistic Heroes - All Rights Reserved.</p>
             <p className="text-xs">
               This website uses cookies to enhance your experience. By continuing to use this site, you consent to our use of cookies.
             </p>
