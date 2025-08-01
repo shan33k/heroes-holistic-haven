@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Progress } from '@/components/ui/progress';
+import { Gift, ExternalLink, Snowflake } from 'lucide-react';
 
 const Donate = () => {
   const goalAmount = 1000000;
@@ -26,6 +27,83 @@ const Donate = () => {
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Help us reach our goal of $1,000,000 to bring life-changing holistic practices to veterans nationwide.
             </p>
+          </div>
+        </section>
+
+        {/* BlueCube Icebath Raffle - Featured Section */}
+        <section className="py-16 bg-gradient-to-r from-healing-blue to-calm-teal text-white">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <div className="flex items-center justify-center mb-4">
+                <Snowflake className="h-8 w-8 mr-2" />
+                <Gift className="h-8 w-8 ml-2" />
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                WIN A BLUECUBE ICEBATH
+              </h2>
+              <p className="text-2xl font-semibold mb-4">
+                Valued at $30,000
+              </p>
+              <p className="text-xl opacity-90 max-w-3xl mx-auto mb-8">
+                Enter our exclusive raffle for a chance to win this premium cold exposure therapy unit. 
+                Perfect for veterans seeking the benefits of cold therapy in their own home.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              {/* Raffle Details */}
+              <Card className="bg-white/10 backdrop-blur-sm border-white/20 shadow-xl">
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-bold mb-4">Why Cold Exposure Therapy?</h3>
+                  <ul className="space-y-3 text-lg">
+                    <li className="flex items-start">
+                      <span className="text-white/80 mr-3">•</span>
+                      Reduces inflammation and stress hormones
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-white/80 mr-3">•</span>
+                      Improves mental clarity and focus
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-white/80 mr-3">•</span>
+                      Enhances recovery and immune function
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-white/80 mr-3">•</span>
+                      Builds mental resilience and discipline
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              {/* Raffle Entry */}
+              <Card className="bg-white/10 backdrop-blur-sm border-white/20 shadow-xl">
+                <CardContent className="p-8 text-center">
+                  <h3 className="text-2xl font-bold mb-6">Enter the Raffle</h3>
+                  <p className="text-lg mb-6 opacity-90">
+                    Get your BlueCube raffle tickets and support our mission while having a chance to win this incredible prize!
+                  </p>
+                  <Button 
+                    asChild 
+                    size="lg" 
+                    className="btn-raffle-primary text-lg px-8 py-4 h-auto"
+                  >
+                    <a 
+                      href="https://www.zeffy.com/en-US/ticketing/159b6e65-31f9-4317-b217-b1b94b7f11e7" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2"
+                    >
+                      <span>GET YOUR BLUECUBE RAFFLE TICKETS HERE!!</span>
+                      <ExternalLink className="h-5 w-5" />
+                    </a>
+                  </Button>
+                  <p className="text-sm opacity-80 mt-4">
+                    *Raffle tickets support Holistic Heroes Coalition's veteran programs
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </section>
 
@@ -62,7 +140,7 @@ const Donate = () => {
           <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
             <Card className="shadow-card">
               <CardHeader>
-                <CardTitle className="text-2xl text-center text-healing-blue">Make a Donation</CardTitle>
+                <CardTitle className="text-2xl text-center text-healing-blue">Make a Direct Donation</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 {/* Preset Amounts */}

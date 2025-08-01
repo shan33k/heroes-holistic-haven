@@ -1,16 +1,24 @@
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-import { Heart, Shield, Brain, Leaf, Target, Users } from 'lucide-react';
-const heroImage = '/lovable-uploads/ee48565e-c22d-42cb-b7cd-5b3e482fae8b.png';
+import { Heart, Shield, Brain, Leaf, Target, Users, Snowflake, Gift } from 'lucide-react';
 
 const Index = () => {
   const goalAmount = 1000000;
   const currentAmount = 125000;
   const progressPercentage = (currentAmount / goalAmount) * 100;
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  // Preload hero image
+  useEffect(() => {
+    const img = new Image();
+    img.onload = () => setImageLoaded(true);
+    img.src = '/lovable-uploads/ee48565e-c22d-42cb-b7cd-5b3e482fae8b.png';
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
@@ -20,8 +28,16 @@ const Index = () => {
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
           <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${heroImage})` }}
+            className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${
+              imageLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
+            style={{ 
+              backgroundImage: `url(/lovable-uploads/ee48565e-c22d-42cb-b7cd-5b3e482fae8b.png)`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+            role="img"
+            aria-label="Hero background image of veterans in nature"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/60"></div>
           </div>
@@ -63,13 +79,13 @@ const Index = () => {
         </section>
 
         {/* Benefits Section */}
-        <section className="py-20">
+        <section className="py-20" aria-labelledby="benefits-heading">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-center mb-16 text-healing-blue">Benefits of Our Approach</h2>
+            <h2 id="benefits-heading" className="text-4xl font-bold text-center mb-16 text-healing-blue">Benefits of Our Approach</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <Card className="shadow-card hover:shadow-lg transition-shadow">
+              <Card className="card-hover shadow-card">
                 <CardContent className="p-8 text-center">
-                  <Leaf className="h-12 w-12 text-nature-green mx-auto mb-4" />
+                  <Leaf className="h-12 w-12 text-nature-green mx-auto mb-4" aria-hidden="true" />
                   <h3 className="text-xl font-semibold mb-4">Natural & Drug-Free</h3>
                   <p className="text-muted-foreground">
                     Safe, natural alternatives for stress and anxiety management without pharmaceutical dependency.
@@ -77,9 +93,9 @@ const Index = () => {
                 </CardContent>
               </Card>
 
-              <Card className="shadow-card hover:shadow-lg transition-shadow">
+              <Card className="card-hover shadow-card">
                 <CardContent className="p-8 text-center">
-                  <Shield className="h-12 w-12 text-healing-blue mx-auto mb-4" />
+                  <Shield className="h-12 w-12 text-healing-blue mx-auto mb-4" aria-hidden="true" />
                   <h3 className="text-xl font-semibold mb-4">Empowers Self-Regulation</h3>
                   <p className="text-muted-foreground">
                     Learn to regulate your nervous system and emotional responses through proven techniques.
@@ -87,9 +103,9 @@ const Index = () => {
                 </CardContent>
               </Card>
 
-              <Card className="shadow-card hover:shadow-lg transition-shadow">
+              <Card className="card-hover shadow-card">
                 <CardContent className="p-8 text-center">
-                  <Heart className="h-12 w-12 text-calm-teal mx-auto mb-4" />
+                  <Heart className="h-12 w-12 text-calm-teal mx-auto mb-4" aria-hidden="true" />
                   <h3 className="text-xl font-semibold mb-4">Enhances Relaxation</h3>
                   <p className="text-muted-foreground">
                     Experience deep relaxation and stress relief through guided breathwork and mindfulness practices.
@@ -97,9 +113,9 @@ const Index = () => {
                 </CardContent>
               </Card>
 
-              <Card className="shadow-card hover:shadow-lg transition-shadow">
+              <Card className="card-hover shadow-card">
                 <CardContent className="p-8 text-center">
-                  <Target className="h-12 w-12 text-nature-green mx-auto mb-4" />
+                  <Target className="h-12 w-12 text-nature-green mx-auto mb-4" aria-hidden="true" />
                   <h3 className="text-xl font-semibold mb-4">Reduces Stress</h3>
                   <p className="text-muted-foreground">
                     Scientifically-backed methods to lower cortisol levels and manage daily stress effectively.
@@ -107,9 +123,9 @@ const Index = () => {
                 </CardContent>
               </Card>
 
-              <Card className="shadow-card hover:shadow-lg transition-shadow">
+              <Card className="card-hover shadow-card">
                 <CardContent className="p-8 text-center">
-                  <Brain className="h-12 w-12 text-healing-blue mx-auto mb-4" />
+                  <Brain className="h-12 w-12 text-healing-blue mx-auto mb-4" aria-hidden="true" />
                   <h3 className="text-xl font-semibold mb-4">Improves Mental Clarity</h3>
                   <p className="text-muted-foreground">
                     Enhance cognitive function, focus, and decision-making abilities through holistic practices.
@@ -117,9 +133,9 @@ const Index = () => {
                 </CardContent>
               </Card>
 
-              <Card className="shadow-card hover:shadow-lg transition-shadow">
+              <Card className="card-hover shadow-card">
                 <CardContent className="p-8 text-center">
-                  <Users className="h-12 w-12 text-calm-teal mx-auto mb-4" />
+                  <Users className="h-12 w-12 text-calm-teal mx-auto mb-4" aria-hidden="true" />
                   <h3 className="text-xl font-semibold mb-4">Builds Community</h3>
                   <p className="text-muted-foreground">
                     Connect with fellow veterans on a shared journey of healing and personal growth.
@@ -131,9 +147,9 @@ const Index = () => {
         </section>
 
         {/* Donation Goal Section */}
-        <section className="py-20 bg-gradient-to-r from-healing-blue to-calm-teal text-white">
+        <section className="py-20 bg-gradient-to-r from-healing-blue to-calm-teal text-white" aria-labelledby="donation-heading">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-4xl font-bold mb-8">Help Us Reach Our Goal</h2>
+            <h2 id="donation-heading" className="text-4xl font-bold mb-8">Help Us Reach Our Goal</h2>
             <Card className="bg-white/10 backdrop-blur-sm border-white/20 shadow-xl">
               <CardContent className="p-8">
                 <div className="text-6xl font-bold mb-4">
@@ -146,15 +162,24 @@ const Index = () => {
                     <span>Raised: ${currentAmount.toLocaleString()}</span>
                     <span>{progressPercentage.toFixed(1)}% Complete</span>
                   </div>
-                  <Progress value={progressPercentage} className="h-4 bg-white/20" />
+                  <Progress 
+                    value={progressPercentage} 
+                    className="h-4 bg-white/20" 
+                    aria-label={`Fundraising progress: ${progressPercentage.toFixed(1)}% complete`}
+                  />
                   <p className="text-sm opacity-80">
                     ${(goalAmount - currentAmount).toLocaleString()} remaining to transform veteran lives nationwide
                   </p>
                 </div>
                 
-                <Button asChild size="lg" className="mt-8 bg-white text-healing-blue hover:bg-white/90 text-lg px-8 py-4">
-                  <Link to="/donate">Donate Now</Link>
-                </Button>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                  <Button asChild size="lg" className="btn-raffle-primary text-lg px-8 py-4">
+                    <Link to="/donate">Donate Now</Link>
+                  </Button>
+                  <Button asChild size="lg" className="btn-raffle-outline text-lg px-8 py-4">
+                    <Link to="/donate">Enter BlueCube Raffle</Link>
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -176,6 +201,29 @@ const Index = () => {
                 <Link to="/contact">Get in Touch</Link>
               </Button>
             </div>
+          </div>
+        </section>
+
+        {/* BlueCube Raffle Promo */}
+        <section className="py-20 bg-gradient-to-r from-healing-blue to-calm-teal text-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="flex items-center justify-center mb-6">
+              <Snowflake className="h-8 w-8 mr-2" />
+              <Gift className="h-8 w-8 ml-2" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              WIN A BLUECUBE ICEBATH
+            </h2>
+            <p className="text-xl font-semibold mb-4">
+              Valued at $30,000
+            </p>
+            <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
+              Enter our exclusive raffle for a chance to win this premium cold exposure therapy unit. 
+              Perfect for veterans seeking the benefits of cold therapy in their own home.
+            </p>
+            <Button asChild size="lg" className="btn-raffle-primary text-lg px-8 py-4">
+              <Link to="/donate">Enter the Raffle</Link>
+            </Button>
           </div>
         </section>
       </main>
